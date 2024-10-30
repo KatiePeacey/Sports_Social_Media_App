@@ -14,12 +14,6 @@ class ClubTableSeeder extends Seeder
     public function run(): void
     {
         //
-        $c1 = new Club;
-
-        $c1 -> name = 'Abergavenny';
-        $c1 -> teams = 1;
-        $c1 -> members = 32;
-        $c1 -> pitch_location = 'Crickhowell';
-        $c1 -> save();
+       Club::factory()->count(50)->create();
     }
 }
