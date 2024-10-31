@@ -4,9 +4,10 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
+use App\Models\Club;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Pitch>
- */tting up a one to one relation
+ */
 class PitchFactory extends Factory
 {
     /**
@@ -21,7 +22,7 @@ class PitchFactory extends Factory
             'city' => fake()->city(),
             'streetAddress' => fake()->streetAddress(),
             'postcode' => fake()->postcode(),
-            'club_id' => ,
+            'club_id' => Club::factory()->create()->id,
         ];
     }
 }
