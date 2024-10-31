@@ -18,6 +18,7 @@ class ClubFactory extends Factory
     {
         return [
             //
+            
             'name' => fake() -> city(),
             'teams' => fake() -> numberBetween(1, 10),
             'members' => fake() -> numberBetween(10, 100),
