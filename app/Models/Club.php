@@ -8,4 +8,9 @@ use Illuminate\Database\Eloquent\Model;
 class Club extends Model
 {
     use HasFactory;
+
+    public function pitch()
+    {
+        return $this->hasOne(Pitch::class);
+    }
 }

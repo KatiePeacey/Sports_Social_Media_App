@@ -19,6 +19,7 @@ class PitchTableSeeder extends Seeder
         $l->city = 'Swansea';
         $l->streetAddress = 'Cwm Farm Lane';
         $l->postcode = 'SA2 9AU';
+        $l->club_id = 1;
         $l->save();
 
         Pitch::factory()->count(10)->create();
