@@ -21,7 +21,7 @@ class PitchFactory extends Factory
             'city' => fake()->city(),
             'streetAddress' => fake()->streetAddress(),
             'postcode' => fake()->postcode(),
-            'club_id' => Club::factory()->create()->id,
+            'club_id' => null,
         ];
     }
 }
