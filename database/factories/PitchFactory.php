@@ -18,7 +18,6 @@ class PitchFactory extends Factory
     public function definition(): array
     {
         return [
-            //
             'city' => fake()->city(),
             'streetAddress' => fake()->streetAddress(),
             'postcode' => fake()->postcode(),

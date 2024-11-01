@@ -13,8 +13,6 @@ class UmpireTableSeeder extends Seeder
      */
     public function run(): void
     {
-        //
-
         $u = new Umpire;
         $u->name = 'George';
         $u->email = 'george@gmail.com';
@@ -23,8 +21,5 @@ class UmpireTableSeeder extends Seeder
         $u->save();
         $u->clubs()->attach(1);
         $u->clubs()->attach(9);
-
-       // Umpire::factory()->count(20)->create();
-
     }
 }

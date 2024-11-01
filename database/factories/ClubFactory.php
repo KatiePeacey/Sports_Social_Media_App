@@ -20,7 +20,6 @@ class ClubFactory extends Factory
     public function definition(): array
     {
         return [
-            //
             'name' => fake()->city(),
             'teams' => fake()->numberBetween(1, 10),
             'members' => fake()->numberBetween(1, 250),

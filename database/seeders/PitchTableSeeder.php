@@ -13,8 +13,6 @@ class PitchTableSeeder extends Seeder
      */
     public function run(): void
     {
-        //
-
         $l = new Pitch;
         $l->city = 'Swansea';
         $l->streetAddress = 'Cwm Farm Lane';

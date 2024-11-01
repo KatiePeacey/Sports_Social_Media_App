@@ -19,10 +19,8 @@ class PlayerFactory extends Factory
     public function definition(): array
     {
         return [
-            //
             'name' => fake()->name(),
             'age' => fake()->numberBetween(13, 60),
-            //'club_id' => fake()->numberBetween(1, 2),
             'club_id' => Club::factory()->create()->id,
         ];
     }

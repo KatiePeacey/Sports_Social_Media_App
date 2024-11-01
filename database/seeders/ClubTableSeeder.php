@@ -9,9 +9,6 @@ use App\Models\Umpire;
 
 class ClubTableSeeder extends Seeder
 {
-    /**
-     * Run the database seeds.
-     */
     public function run(): void
     {
         $c = new Club;
@@ -24,5 +21,5 @@ class ClubTableSeeder extends Seeder
         ->has(Umpire::factory()->count(3)) //Links 3 umpires for each club
         ->count(10) //Creates 10 clubs
         ->create();
-}
+    }
 }

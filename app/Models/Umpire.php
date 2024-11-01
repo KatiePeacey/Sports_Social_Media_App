@@ -8,6 +8,7 @@ use Illuminate\Database\Eloquent\Model;
 class Umpire extends Model
 {
     use HasFactory;
+    
     public function clubs()
     {
         return $this->belongsToMany(Club::class);
