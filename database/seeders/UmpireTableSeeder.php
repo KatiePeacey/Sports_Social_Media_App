@@ -24,7 +24,7 @@ class UmpireTableSeeder extends Seeder
         $u->clubs()->attach(1);
         $u->clubs()->attach(9);
 
-        Umpire::factory()->count(10)->create();
+        Umpire::factory()->count(20)->create();
 
     }
 }
