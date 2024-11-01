@@ -21,7 +21,7 @@ class PlayerFactory extends Factory
         return [
             'name' => fake()->name(),
             'age' => fake()->numberBetween(13, 60),
-            'club_id' => Club::factory()->create()->id,
+            'club_id' => Club::factory(),
         ];
     }
 }
