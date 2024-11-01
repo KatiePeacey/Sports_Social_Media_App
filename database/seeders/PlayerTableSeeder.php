@@ -13,13 +13,11 @@ class PlayerTableSeeder extends Seeder
      */
     public function run(): void
     {
-        //
         $p = new Player;
         $p->name = 'Tom Jones';
         $p->age = 20;
         $p->club_id = 1;
         $p->save();
-
         Player::factory()->count(50)->create();
 
     }

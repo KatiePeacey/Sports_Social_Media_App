@@ -3,12 +3,15 @@
 namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
+use App\Models\Club;
+use App\Models\Player;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Club>
  */
 class ClubFactory extends Factory
 {
+
     /**
      * Define the model's default state.
      *
@@ -22,5 +25,5 @@ class ClubFactory extends Factory
             'teams' => fake()->numberBetween(1, 10),
             'members' => fake()->numberBetween(1, 250),
         ];
-    }
+    } 
 }

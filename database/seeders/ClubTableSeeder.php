@@ -13,7 +13,6 @@ class ClubTableSeeder extends Seeder
      */
     public function run(): void
     {
-        //
         $c = new Club;
         $c->name = 'Gowerton';
         $c->teams = 2;
@@ -21,5 +20,5 @@ class ClubTableSeeder extends Seeder
         $c->save();
 
         Club::factory()->count(10)->create();
-    }
+}
 }
