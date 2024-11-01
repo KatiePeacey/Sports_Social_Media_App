@@ -20,6 +20,7 @@ class PlayerFactory extends Factory
             //
             'name' => fake()->name(),
             'age' => fake()->numberBetween(13, 60),
+            'club_id' => fake()->numberBetween(1, 2),
         ];
     }
 }

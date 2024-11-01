@@ -13,4 +13,8 @@ class Club extends Model
     {
         return $this->hasOne(Pitch::class);
     }
+    public function players()
+    {
+        return $this->hasMany(Player::class)
+    }
 }

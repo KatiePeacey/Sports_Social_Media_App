@@ -16,7 +16,11 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('age');
+            $table->bigInteger('club_id')->unsigned();
             $table->timestamps();
+
+            $table->foreign('club_id')->references('id')->on('clubs')
+            ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 
