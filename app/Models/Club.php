@@ -15,6 +15,11 @@ class Club extends Model
     }
     public function players()
     {
-        return $this->hasMany(Player::class)
+        return $this->hasMany(Player::class);
     }
+    public function umpires()
+    {
+        return $this->belongsToMany(Umpire::class);
+    }
+
 }
