@@ -16,7 +16,7 @@ class ClubTableSeeder extends Seeder
         $c = new Club;
         $c->name = 'Gowerton';
         $c->teams = 2;
-        $c->members = 150;
+        $c->established = 1972;
         $c->save();
 
         Club::factory()
@@ -28,3 +28,4 @@ class ClubTableSeeder extends Seeder
 
     }
 }
+
