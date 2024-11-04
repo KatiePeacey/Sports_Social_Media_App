@@ -16,7 +16,7 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('teams');
-            $table->integer('established');
+            $table->integer('members');
             $table->timestamps();
         });
     }

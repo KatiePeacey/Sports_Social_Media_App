@@ -23,7 +23,7 @@ class ClubFactory extends Factory
         return [
             'name' => fake()->city(),
             'teams' => fake()->numberBetween(1, 10),
-            'established' => fake()->year(1950, $max = 'now'),
+            'members' => fake()->numberBetween(1, 250),
         ];
     } 
 }
