@@ -21,4 +21,12 @@ Route::get('/secret' ,function (){
     return "secret";
 }) -> middleware(['auth']);
 
+Route::get('/food', function(){
+    return view('food');
+});
+
+Route::get('/clubs/{player?}', function($player = null) {
+    return view('club', ['player' => $player]);
+});
+
 require __DIR__.'/auth.php';
