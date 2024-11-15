@@ -3,6 +3,7 @@
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\ClubController;
+use App\Http\Controllers\PlayerController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -31,5 +32,7 @@ Route::get('/food', function(){
 // });
 
 Route::get('/clubs', [ClubController::class, 'index']);
+
+Route::get('/players', [PlayerController::class, 'index']);
 
 require __DIR__.'/auth.php';
