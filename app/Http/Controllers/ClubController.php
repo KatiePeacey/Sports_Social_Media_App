@@ -38,7 +38,8 @@ class ClubController extends Controller
      */
     public function show(string $id)
     {
-        //
+        $club = Club::findOrFail($id);
+        return view('clubs.show', ['club' => $club]);
     }
 
     /**
