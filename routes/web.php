@@ -35,6 +35,8 @@ Route::get('/clubs', [ClubController::class, 'index']);
 
 Route::get('/players', [PlayerController::class, 'index']);
 
-Route::get('/clubs/{id}', [ClubController::class, 'show']);
+Route::get('/clubs/{id}', [ClubController::class, 'show']) -> name('clubs.show');
+
+Route::get('/players/{id}', [PlayerController::class, 'show']) -> name('players.show');
 
 require __DIR__.'/auth.php';

@@ -6,7 +6,7 @@
     <p>The clubs in hockey:</p>
     <ul>
         @foreach ($clubs as $club)
-            <li>{{ $club->name }}</li>
+            <li><a href="{{ route('clubs.show', ['id' => $club->id]) }}">{{ $club->name }}</a></li>
         @endforeach
     </ul>
 @endsection
