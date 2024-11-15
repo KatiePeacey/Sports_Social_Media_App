@@ -13,7 +13,7 @@ class PlayerController extends Controller
      */
     public function index()
     {
-        $players = Player :: all();
+        $players = Player::simplepaginate(20);
         return view ('players.index', ['players' => $players]);
     }
 
