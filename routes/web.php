@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\ClubController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -25,8 +26,10 @@ Route::get('/food', function(){
     return view('food');
 });
 
-Route::get('/clubs/{player?}', function($player = null) {
-    return view('club', ['player' => $player]);
-});
+// Route::get('/clubs/{player?}', function($player = null) {
+//     return view('club', ['player' => $player]);
+// });
+
+Route::get('/clubs', [ClubController::class, 'index']);
 
 require __DIR__.'/auth.php';

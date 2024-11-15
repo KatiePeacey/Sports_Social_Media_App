@@ -1,9 +1,7 @@
-<html>
-<head>
-    <title>Food</title>
-</head>
-<body>
-    <h1>Food outlet</h1>
+@extends('layouts.app')
+
+@section('title', 'Food')
+
+@section('content')
     <p>Swansea zoo will soon have many food outlets.</p>
-</body>
-</html>
+@endsection
