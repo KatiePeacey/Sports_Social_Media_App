@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Player;
+use App\Models\Club;
 
 class PlayerController extends Controller
 {
@@ -22,7 +23,9 @@ class PlayerController extends Controller
      */
     public function create()
     {
-        return view('players.create');
+        //$clubs = Club::all();
+        $clubs = Club::orderBy('name', 'asc')->get();
+        return view('players.create', ['clubs' => $clubs]);
     }
 
     /**
