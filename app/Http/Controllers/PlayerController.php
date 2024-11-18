@@ -52,9 +52,9 @@ class PlayerController extends Controller
     /**
      * Display the specified resource.
      */
-    public function show(string $id)
+    public function show(Player $player)
     {
-        $player = Player::findOrFail($id);
+        //$player = Player::findOrFail($id);
         return view('players.show', ['player' => $player]);
     }
 
@@ -79,6 +79,9 @@ class PlayerController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $player = Player::findOrFail($id);
+        $player->delete();
+
+        return redirect()->route('players.index')->with('message', 'Player was deleted.');
     }
 }

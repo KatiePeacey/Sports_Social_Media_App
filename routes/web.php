@@ -39,7 +39,11 @@ Route::get('/clubs/{id}', [ClubController::class, 'show']) -> name('clubs.show')
 Route::get('/players', [PlayerController::class, 'index']) ->name('players.index');
 Route::get('/players/create', [PlayerController::class, 'create']) -> name('players.create');
 Route::post('/players', [PlayerController::class, 'store']) -> name('players.store');
-Route::get('/players/{id}', [PlayerController::class, 'show']) -> name('players.show');
+//Route::get('/players/{id}', [PlayerController::class, 'show']) -> name('players.show');
+Route::get('/players/{player}', [PlayerController::class, 'show'])->name('players.show');
+
+
+Route::delete('/players/{id}', [PlayerController::class, 'destroy']) -> name('players.destroy');
 
 Route::get('/pitches', [PitchController::class, 'index']) ->name('pitches.index');
 Route::get('/pitches/{id}', [PitchController::class, 'show']) -> name('pitches.show');
