@@ -22,7 +22,7 @@ class PlayerController extends Controller
      */
     public function create()
     {
-        //
+        return view('players.create');
     }
 
     /**
@@ -30,7 +30,20 @@ class PlayerController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request['name']);
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'age' => 'required|integer',
+            'club_id' => 'required|integer',
+        ]);
+        $a = new Player;
+        $a->name = $validatedData['name'];
+        $a->age = $validatedData['age'];
+        $a->club_id = $validatedData['club_id'];
+        $a->save();
+
+        session()->flash('message', 'Player was created.');
+        return redirect()->route('players.index');
     }
 
     /**

@@ -33,20 +33,18 @@ Route::get('/food', function(){
 //     return view('club', ['player' => $player]);
 // });
 
-Route::get('/clubs', [ClubController::class, 'index']);
-
-Route::get('/players', [PlayerController::class, 'index']);
-
-Route::get('/pitches', [PitchController::class, 'index']);
-
-Route::get('/umpires', [UmpireController::class, 'index']);
-
+Route::get('/clubs', [ClubController::class, 'index']) ->name('clubs.index');
 Route::get('/clubs/{id}', [ClubController::class, 'show']) -> name('clubs.show');
 
+Route::get('/players', [PlayerController::class, 'index']) ->name('players.index');
+Route::get('/players/create', [PlayerController::class, 'create']) -> name('players.create');
+Route::post('/players', [PlayerController::class, 'store']) -> name('players.store');
 Route::get('/players/{id}', [PlayerController::class, 'show']) -> name('players.show');
 
+Route::get('/pitches', [PitchController::class, 'index']) ->name('pitches.index');
 Route::get('/pitches/{id}', [PitchController::class, 'show']) -> name('pitches.show');
 
+Route::get('/umpires', [UmpireController::class, 'index']) ->name('umpires.index');
 Route::get('/umpires/{id}', [UmpireController::class, 'show']) -> name('umpires.show');
 
 require __DIR__.'/auth.php';

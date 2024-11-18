@@ -11,5 +11,6 @@
     </ul>
 
     {{ $players->links() }}
+    <a href="{{ route('players.create' )}}">Create Player</a>
 
 @endsection
