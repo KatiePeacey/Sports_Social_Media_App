@@ -6,6 +6,7 @@ use App\Http\Controllers\ClubController;
 use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\PitchController;
 use App\Http\Controllers\UmpireController;
+use App\Http\Controllers\PostController;
 
 Route::get('/', function () {
     return view('welcome');
@@ -41,9 +42,14 @@ Route::get('/players/create', [PlayerController::class, 'create']) -> name('play
 Route::post('/players', [PlayerController::class, 'store']) -> name('players.store');
 //Route::get('/players/{id}', [PlayerController::class, 'show']) -> name('players.show');
 Route::get('/players/{player}', [PlayerController::class, 'show'])->name('players.show');
-
-
 Route::delete('/players/{id}', [PlayerController::class, 'destroy']) -> name('players.destroy');
+
+Route::get('/posts', [PostController::class, 'index']) ->name('posts.index');
+Route::get('/posts/create', [PostController::class, 'create']) -> name('posts.create');
+Route::post('/posts', [PostController::class, 'store']) -> name('posts.store');
+//Route::get('/players/{id}', [PlayerController::class, 'show']) -> name('players.show');
+Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
+Route::delete('/posts/{id}', [PostController::class, 'destroy']) -> name('posts.destroy');
 
 Route::get('/pitches', [PitchController::class, 'index']) ->name('pitches.index');
 Route::get('/pitches/{id}', [PitchController::class, 'show']) -> name('pitches.show');

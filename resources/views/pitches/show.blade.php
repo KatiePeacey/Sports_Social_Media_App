@@ -7,6 +7,6 @@
         <li>City: {{ $pitch->city }}</li>
         <li>Street Address: {{ $pitch->streetAddress }}</li>
         <li>Postcode: {{ $pitch->postcode }}</li>
-        <li>Club_id: {{ $pitch->club->name }}</li>
+        <li>Club Id: {{ $pitch->club->name }}</li>
     </ul>
 @endsection

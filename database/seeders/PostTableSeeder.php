@@ -4,20 +4,24 @@ namespace Database\Seeders;
 
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
-use App\Models\Player;
 use App\Models\Post;
+use App\Models\Player;
 
-class PlayerTableSeeder extends Seeder
+class PostTableSeeder extends Seeder
 {
     /**
      * Run the database seeds.
      */
     public function run(): void
     {
-        $p = new Player;
+        $p = new Post;
         $p->name = 'Tom Jones';
-        $p->age = 20;
-        $p->club_id = 1;
+        $p->content = 'post';
+        $p->player_id = 1;
         $p->save();
+
+        // Post::factory()
+        // ->count(10) //Creates 10 clubs
+        // ->create();
     }
 }

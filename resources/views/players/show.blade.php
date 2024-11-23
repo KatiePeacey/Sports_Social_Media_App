@@ -6,7 +6,7 @@
     <ul>
         <li>Name: {{ $player->name }}</li>
         <li>Age: {{ $player->age }}</li>
-        <li>Club_id: {{ $player->club->name }}</li>
+        <li>Club Id: {{ $player->club->name }}</li>
     </ul>
     
     <form method="POST"

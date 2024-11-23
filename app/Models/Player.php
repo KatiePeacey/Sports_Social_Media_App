@@ -13,4 +13,8 @@ class Player extends Model
     {
         return $this->belongsTo(Club::class);
     }
+    public function posts()
+    {
+        return $this->hasMany(Post::class);
+    }
 }

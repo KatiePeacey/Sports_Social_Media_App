@@ -8,6 +8,7 @@ use App\Models\Club;
 use App\Models\Umpire;
 use App\Models\Player;
 use App\Models\Pitch;
+use App\Models\Post;
 
 class ClubTableSeeder extends Seeder
 {
@@ -20,11 +21,16 @@ class ClubTableSeeder extends Seeder
         $c->save();
 
         Club::factory()
-        ->count(10) //Creates 10 clubs
-        ->has(Umpire::factory()->count(3)) //Links 3 umpires for each club
-        ->has(Player::factory()->count(30)) //Links 30 players for each club
-        ->has(Pitch::factory()) //Every club has a pitch
+        ->count(10)
+        ->has(Umpire::factory()->count(3)) // Links 3 umpires for each club
+        ->has(
+            Player::factory()
+                ->count(30) // Creates 30 players for each club
+                ->has(Post::factory()->count(3)) // Creates 10 posts for each player
+        )
+        ->has(Pitch::factory()) // Every club has a pitch
         ->create();
+
 
     }
 }
