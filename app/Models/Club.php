@@ -13,9 +13,9 @@ class Club extends Model
     {
         return $this->hasOne(Pitch::class);
     }
-    public function players()
+    public function post()
     {
-        return $this->hasMany(Player::class);
+        return $this->hasMany(Post::class);
     }
     public function umpires()
     {

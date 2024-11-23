@@ -4,18 +4,18 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Player;
+use App\Models\Post;
 use App\Models\Club;
 
-class PlayerController extends Controller
+class PostController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $players = Player::simplepaginate(20);
-        return view ('players.index', ['players' => $players]);
+        $posts = Post::simplepaginate(20);
+        return view ('posts.index', ['posts' => $posts]);
     }
 
     /**
@@ -39,23 +39,23 @@ class PlayerController extends Controller
             'age' => 'required|integer',
             'club_id' => 'required|integer',
         ]);
-        $a = new Player;
+        $a = new Post;
         $a->name = $validatedData['name'];
         $a->age = $validatedData['age'];
         $a->club_id = $validatedData['club_id'];
         $a->save();
 
         session()->flash('message', 'Player was created.');
-        return redirect()->route('players.index');
+        return redirect()->route('posts.index');
     }
 
     /**
      * Display the specified resource.
      */
-    public function show(Player $player)
+    public function show(Post $post)
     {
         //$player = Player::findOrFail($id);
-        return view('players.show', ['player' => $player]);
+        return view('posts.show', ['post' => $post]);
     }
 
     /**
@@ -79,9 +79,9 @@ class PlayerController extends Controller
      */
     public function destroy(string $id)
     {
-        $player = Player::findOrFail($id);
-        $player->delete();
+        $post = Post::findOrFail($id);
+        $post->delete();
 
-        return redirect()->route('players.index')->with('message', 'Player was deleted.');
+        return redirect()->route('posts.index')->with('message', 'Player was deleted.');
     }
 }

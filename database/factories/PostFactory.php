@@ -4,12 +4,12 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 use App\Models\Club;
-use App\Models\Player;
+use App\Models\Post;
 
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Player>
  */
-class PlayerFactory extends Factory
+class PostFactory extends Factory
 {
     /**
      * Define the model's default state.
