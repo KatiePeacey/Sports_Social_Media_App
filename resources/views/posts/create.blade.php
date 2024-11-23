@@ -5,8 +5,6 @@
 @section('content')
     <form method="POST" action="{{ route('posts.store') }}">
         @csrf
-        <p>Name: <input type="text" name="name"
-            value="{{ old('name') }}"></p>
         <p>Content: <input type="text" name="content"
             value="{{ old('content') }}"></p>
 

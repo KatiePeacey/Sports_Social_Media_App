@@ -4,7 +4,7 @@
 
 @section('content')
     <ul>
-        <li>Name: {{ $post->name }}</li>
+        <li>Name: {{ $post->player->name }}</li>
         <li>Content: <img src="{{ asset('images/' . $post->content) }}" alt="Post Image" width="400" height="300"></li>
         <li>Player Id: {{ $post->player->name }}</li>
     </ul>

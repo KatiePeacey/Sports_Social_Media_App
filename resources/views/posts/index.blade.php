@@ -6,7 +6,7 @@
     <p>The posts for each player:</p>
     <ul>
         @foreach ($posts as $post)
-            <li><a href="{{ route('posts.show', $post) }}">{{ $post->name }}</a></li>
+            <li><a href="{{ route('posts.show', $post) }}">{{ $post->player->name }}</a></li>
         @endforeach
     </ul>
 
