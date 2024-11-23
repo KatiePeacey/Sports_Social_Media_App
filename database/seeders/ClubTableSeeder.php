@@ -26,7 +26,7 @@ class ClubTableSeeder extends Seeder
         ->has(
             Player::factory()
                 ->count(5) // Creates 30 players for each club
-                ->has(Post::factory()->count(1)) // Creates 10 posts for each player
+                ->has(Post::factory()->count(2)) // Creates 10 posts for each player
         )
         ->has(Pitch::factory()) // Every club has a pitch
         ->create();
