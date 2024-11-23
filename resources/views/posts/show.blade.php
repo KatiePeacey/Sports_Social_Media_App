@@ -1,4 +1,4 @@
-@extends('layouts.app')
+<!-- @extends('layouts.app')
 
 @section('title', 'Post Details')
 
@@ -18,4 +18,20 @@
 
     <p><a href="{{ route('posts.index') }}">Back</a></p>
 
+@endsection -->
+
+<!-- resources/views/posts/show.blade.php -->
+@extends('layouts.app')
+
+@section('title', 'All Posts Contents')
+
+@section('content')
+    <h1>All Posts Contents</h1>
+    <ul>
+        @foreach ($posts as $post)
+            <li>
+                <img src="{{ asset('images/' . $post->content) }}" alt="Post Image" width="400" height="300">
+            </li>
+        @endforeach
+    </ul>
 @endsection

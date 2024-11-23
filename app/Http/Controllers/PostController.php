@@ -54,8 +54,9 @@ class PostController extends Controller
      */
     public function show(string $id)
     {
-        $post = Post::findOrFail($id);
-        return view('posts.show', ['post' => $post]);
+       // $posts = Post::findOrFail($id);
+        $posts = Post::all();
+        return view('posts.show', ['post' => $posts]);
     }
 
     /**
