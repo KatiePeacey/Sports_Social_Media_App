@@ -16,7 +16,7 @@ class PostTableSeeder extends Seeder
     {
         $p = new Post;
         $p->name = 'Tom Jones';
-        $p->content = 'post';
+        $p->content = 'ff26dafdc42c7084cf3ad58200673783.png';
         $p->player_id = 1;
         $p->save();
 

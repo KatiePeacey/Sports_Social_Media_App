@@ -36,7 +36,7 @@ class PostController extends Controller
         //dd($request['name']);
         $validatedData = $request->validate([
             'name' => 'required|max:255',
-            'content' => 'required|max:255',
+            'content' => 'required|string',
             'player_id' => 'required|integer',
         ]);
         $a = new Post;

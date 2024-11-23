@@ -21,12 +21,12 @@ class ClubTableSeeder extends Seeder
         $c->save();
 
         Club::factory()
-        ->count(10)
+        ->count(10) 
         ->has(Umpire::factory()->count(3)) // Links 3 umpires for each club
         ->has(
             Player::factory()
-                ->count(30) // Creates 30 players for each club
-                ->has(Post::factory()->count(3)) // Creates 10 posts for each player
+                ->count(5) // Creates 30 players for each club
+                ->has(Post::factory()->count(1)) // Creates 10 posts for each player
         )
         ->has(Pitch::factory()) // Every club has a pitch
         ->create();
