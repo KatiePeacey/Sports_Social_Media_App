@@ -5,7 +5,7 @@
 </head>
 <body>
     <h1>Hockey Management - @yield('title')</h1>
-
+    @livewire('user-search')
     @if ($errors->any())
         <div>
             Errors:
@@ -24,5 +24,6 @@
     <div>
         @yield('content')
     </div>
+    
 </body>
 </html>

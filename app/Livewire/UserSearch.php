@@ -3,17 +3,16 @@
 namespace App\Livewire;
 
 use Livewire\Component;
+use App\Models\Post;
 
 class UserSearch extends Component
 {
-    use WithPagination;
-
     public $search = '';
-
+ 
     public function render()
     {
         return view('livewire.user-search', [
-            'transactions' => Transaction::search($this->search)->paginate(10),
-    ]);
+            'posts' => Post::where('name', $this->search)->get(),
+        ]);
     }
 }
