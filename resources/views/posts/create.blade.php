@@ -10,14 +10,14 @@
         <p>Age: <input type="text" name="age"
             value="{{ old('age') }}"></p>
 
-        <p>Club Id: <select name="club_id">
-            @foreach ($clubs as $club)
-                <option value="{{ $club->id }}"
-                    @if ($club->id == old('club_id'))
+        <p>Player Id: <select name="player_id">
+            @foreach ($players as $player)
+                <option value="{{ $player->id }}"
+                    @if ($player->id == old('player_id'))
                         selected="selected"
                     @endif
 
-                >{{ $club->name }}</option>
+                >{{ $player->name }}</option>
                 </option>
             @endforeach
         </select>

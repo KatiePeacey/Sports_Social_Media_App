@@ -9,8 +9,8 @@ class Umpire extends Model
 {
     use HasFactory;
 
-    public function clubs()
+    public function players()
     {
-        return $this->belongsToMany(Club::class);
+        return $this->belongsToMany(Player::class);
     }
 }

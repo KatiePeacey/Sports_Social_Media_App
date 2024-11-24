@@ -24,8 +24,8 @@ class PostController extends Controller
     public function create()
     {
         //$clubs = Club::all();
-        $clubs = Club::orderBy('name', 'asc')->get();
-        return view('players.create', ['clubs' => $clubs]);
+        $players = Player::orderBy('name', 'asc')->get();
+        return view('players.create', ['players' => $players]);
     }
 
     /**
@@ -37,12 +37,12 @@ class PostController extends Controller
         $validatedData = $request->validate([
             'name' => 'required|max:255',
             'age' => 'required|integer',
-            'club_id' => 'required|integer',
+            'player_id' => 'required|integer',
         ]);
         $a = new Post;
         $a->name = $validatedData['name'];
         $a->age = $validatedData['age'];
-        $a->club_id = $validatedData['club_id'];
+        $a->club_id = $validatedData['player_id'];
         $a->save();
 
         session()->flash('message', 'Player was created.');

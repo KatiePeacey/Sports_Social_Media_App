@@ -7,7 +7,7 @@
         <ul>
             <li>Name: {{ $post->name }}</li>
             <li>Age: {{ $post->age }}</li>
-            <li>Club Id: {{ $post->club->name }}</li>
+            <li>Player Id: {{ $post->player->name }}</li>
         </ul>
 
         <form method="POST" action="{{ route('posts.destroy', ['id' => $post->id]) }}">

@@ -17,10 +17,10 @@ return new class extends Migration
             $table->string('city');
             $table->string('streetAddress');
             $table->string('postcode');
-            $table->bigInteger('club_id')->unsigned();
+            $table->bigInteger('player_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('club_id')->references('id')->on('clubs')
+            $table->foreign('player_id')->references('id')->on('players')
                 ->onDelete('cascade')->onUpdate('cascade');
         });
     }

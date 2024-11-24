@@ -4,7 +4,7 @@ namespace Database\Factories;
 
 use Illuminate\Database\Eloquent\Factories\Factory;
 
-use App\Models\Club;
+use App\Models\Player;
 /**
  * @extends \Illuminate\Database\Eloquent\Factories\Factory<\App\Models\Pitch>
  */
@@ -21,7 +21,7 @@ class PitchFactory extends Factory
             'city' => fake()->city(),
             'streetAddress' => fake()->streetAddress(),
             'postcode' => fake()->postcode(),
-            'club_id' => null,
+            'player_id' => null,
         ];
     }
 }

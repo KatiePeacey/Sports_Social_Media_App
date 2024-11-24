@@ -16,10 +16,10 @@ return new class extends Migration
             $table->id();
             $table->string('name');
             $table->integer('age');
-            $table->bigInteger('club_id')->unsigned();
+            $table->bigInteger('player_id')->unsigned();
             $table->timestamps();
 
-            $table->foreign('club_id')->references('id')->on('clubs')
+            $table->foreign('player_id')->references('id')->on('players')
             ->onDelete('cascade')->onUpdate('cascade');
         });
     }

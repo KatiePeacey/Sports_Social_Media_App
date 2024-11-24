@@ -2,8 +2,7 @@
 
 use App\Http\Controllers\ProfileController;
 use Illuminate\Support\Facades\Route;
-use App\Http\Controllers\ClubController;
-//use App\Http\Controllers\PlayerController;
+use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\PitchController;
 use App\Http\Controllers\UmpireController;
 use App\Http\Controllers\PostController;
@@ -34,8 +33,8 @@ Route::get('/food', function(){
 //     return view('club', ['player' => $player]);
 // });
 
-Route::get('/clubs', [ClubController::class, 'index']) ->name('clubs.index');
-Route::get('/clubs/{id}', [ClubController::class, 'show']) -> name('clubs.show');
+Route::get('/players', [PlayerController::class, 'index']) ->name('players.index');
+Route::get('/players/{id}', [PlayerController::class, 'show']) -> name('players.show');
 
 Route::get('/posts', [PostController::class, 'index']) ->name('posts.index');
 Route::get('/posts/create', [PostController::class, 'create']) -> name('posts.create');

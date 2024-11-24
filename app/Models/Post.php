@@ -9,8 +9,8 @@ class Post extends Model
 {
     use HasFactory;
 
-    public function club()
+    public function player()
     {
-        return $this->belongsTo(Club::class);
+        return $this->belongsTo(Player::class);
     }
 }

@@ -4,17 +4,17 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 
-use App\Models\Club;
+use App\Models\Player;
 
-class ClubController extends Controller
+class PlayerController extends Controller
 {
     /**
      * Display a listing of the resource.
      */
     public function index()
     {
-        $clubs = Club::all();
-        return view ('clubs.index', ['clubs' => $clubs]);
+        $players = Player::all();
+        return view ('players.index', ['players' => $players]);
     }
 
     /**
@@ -38,8 +38,8 @@ class ClubController extends Controller
      */
     public function show(string $id)
     {
-        $club = Club::findOrFail($id);
-        return view('clubs.show', ['club' => $club]);
+        $player = Player::findOrFail($id);
+        return view('players.show', ['player' => $player]);
     }
 
     /**
