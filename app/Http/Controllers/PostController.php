@@ -5,7 +5,6 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Post;
-use App\Models\Club;
 
 class PostController extends Controller
 {
@@ -52,6 +51,7 @@ class PostController extends Controller
      */
     public function show(Post $post)
     {
+        
         //$player = Player::findOrFail($id);
         return view('posts.show', ['post' => $post]);
     }

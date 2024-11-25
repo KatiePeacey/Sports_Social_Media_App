@@ -1,8 +1,8 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Hockey Management - @yield('title')</title>
-</head>
+        <title>Cymrinet - @yield('title')</title>
+    </head>
 <style>
 body {
   font-family: Arial;
@@ -12,8 +12,8 @@ body {
 .header {
   padding: 10px;
   text-align: center;
-  background: #bdb5d5;
-  color: white;
+  background: green;
+  color: red;
   font-size: 30px;
 }
 
@@ -21,7 +21,7 @@ body {
 </style>
 <body>
     <div class="header">
-    <h1>Hockey Management - @yield('title')</h1>
+    <h1>Cymrinet - @yield('title')</h1>
     </div>
 
     @livewire('user-search')

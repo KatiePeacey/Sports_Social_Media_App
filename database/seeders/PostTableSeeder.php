@@ -5,6 +5,7 @@ namespace Database\Seeders;
 use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
 use App\Models\Post;
+use App\Models\Player;
 
 class PostTableSeeder extends Seeder
 {
@@ -17,5 +18,12 @@ class PostTableSeeder extends Seeder
         $p->content = 'ff26dafdc42c7084cf3ad58200673783.png';
         $p->player_id = 1;
         $p->save();
+
+        $players = Player::all();
+        //Post::factory(2)->for($players->random())->create();
+
+        $players->each(function ($player) {
+            Post::factory(2)->create(['player_id' => $player->id,]);
+        });
     }
 }

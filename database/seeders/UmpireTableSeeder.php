@@ -19,7 +19,9 @@ class UmpireTableSeeder extends Seeder
         $u->postcode = 12332;
         $u->qualification_level = 1;
         $u->save();
-        $u->clubs()->attach(1);
-        $u->clubs()->attach(9);
+        $u->players()->attach(1);
+        $u->players()->attach(9);
+
+        Umpire::factory(10)->create();
     }
 }

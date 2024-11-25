@@ -5,8 +5,8 @@
 @section('content')
     @if(isset($post))
         <ul>
-            <li>Content: <img src="{{ asset('images/' . $post->content) }}" alt="Post Image" width="400" height="300"></li>
-            <li>Player Id: {{ $post->player->name }}</li>
+            <li>Post: <img src="{{ asset('images/' . $post->content) }}" alt="Post Image" width="400" height="300"></li>
+            <li>User Name: {{ $post->player->name }}</li>
         </ul>
 
         <form method="POST" action="{{ route('posts.destroy', ['id' => $post->id]) }}">
