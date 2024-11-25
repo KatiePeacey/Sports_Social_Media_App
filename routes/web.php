@@ -6,6 +6,7 @@ use App\Http\Controllers\PlayerController;
 use App\Http\Controllers\PitchController;
 use App\Http\Controllers\UmpireController;
 use App\Http\Controllers\PostController;
+use App\Livewire\Counter;
 
 Route::get('/', function () {
     return view('welcome');
@@ -32,6 +33,8 @@ Route::get('/food', function(){
 // Route::get('/clubs/{player?}', function($player = null) {
 //     return view('club', ['player' => $player]);
 // });
+ 
+Route::get('/counter', Counter::class);
 
 Route::get('/players', [PlayerController::class, 'index']) ->name('players.index');
 Route::get('/players/{id}', [PlayerController::class, 'show']) -> name('players.show');
