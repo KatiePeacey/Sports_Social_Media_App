@@ -3,7 +3,7 @@
 namespace App\Livewire;
 
 use Livewire\Component;
-use App\Models\Post;
+use App\Models\Player;
 
 class UserSearch extends Component
 {
@@ -12,7 +12,7 @@ class UserSearch extends Component
     public function render()
     {
         return view('livewire.user-search', [
-            'posts' => Post::where('name', $this->search)->get(),
+            'players' => Player::where('name', $this->search)->get(),
         ]);
     }
 }

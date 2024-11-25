@@ -35,17 +35,15 @@ class PostController extends Controller
     {
         //dd($request['name']);
         $validatedData = $request->validate([
-            'name' => 'required|max:255',
-            'age' => 'required|integer',
+            'content' => 'required|string',
             'player_id' => 'required|integer',
         ]);
         $a = new Post;
-        $a->name = $validatedData['name'];
-        $a->age = $validatedData['age'];
-        $a->club_id = $validatedData['player_id'];
+        $a->content = $validatedData['content'];
+        $a->player_id = $validatedData['player_id'];
         $a->save();
 
-        session()->flash('message', 'Player was created.');
+        session()->flash('message', 'Post was created.');
         return redirect()->route('posts.index');
     }
 
@@ -82,6 +80,6 @@ class PostController extends Controller
         $post = Post::findOrFail($id);
         $post->delete();
 
-        return redirect()->route('posts.index')->with('message', 'Player was deleted.');
+        return redirect()->route('posts.index')->with('message', 'Post was deleted.');
     }
 }

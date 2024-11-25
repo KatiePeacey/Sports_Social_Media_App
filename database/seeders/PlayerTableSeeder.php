@@ -24,11 +24,7 @@ class PlayerTableSeeder extends Seeder
         Player::factory()
         ->count(10) 
         ->has(Umpire::factory()->count(3)) // Links 3 umpires for each club
-        ->has(
-            Post::factory()
-                ->count(5) // Creates 30 players for each club
-                //->has(Post::factory()->count(2)) // Creates 10 posts for each player
-        )
+        ->has(Post::factory()->count(2))
         ->has(Pitch::factory()) // Every club has a pitch
         ->create();
 

@@ -2,8 +2,8 @@
     <input wire:model="search" type="text" placeholder="Search users..."/>
  
     <ul>
-        @foreach($posts as $post)
-            <li>{{ $post->name }}</li>
+        @foreach($players as $player)
+            <li>{{ $player->name }}</li>
         @endforeach
     </ul>
 </div>

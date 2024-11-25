@@ -5,11 +5,8 @@
 @section('content')
     <form method="POST" action="{{ route('posts.store') }}">
         @csrf
-        <p>Name: <input type="text" name="name"
-            value="{{ old('name') }}"></p>
-        <p>Age: <input type="text" name="age"
-            value="{{ old('age') }}"></p>
-
+        <p>Content: <input type="text" name="content"
+            value="{{ old('content') }}"></p>
         <p>Player Id: <select name="player_id">
             @foreach ($players as $player)
                 <option value="{{ $player->id }}"
