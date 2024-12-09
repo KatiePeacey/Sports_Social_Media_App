@@ -11,8 +11,8 @@
 
         <!-- @endforeach
     </ul> -->
-    @include('layouts.overview')
-    @include('layouts.pages')
+    @include('layouts.noticeboard')
+    @include('layouts.pagination')
 
 
 @endsection
