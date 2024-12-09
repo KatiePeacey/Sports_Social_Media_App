@@ -1,4 +1,4 @@
-<nav class="bg-gray-800">
+<nav class="bg-gray-200">
             <div class="mx-auto max-w-7xl px-2 sm:px-6 lg:px-8">
                 <div class="relative flex h-16 items-center justify-between">
                 <div class="absolute inset-y-0 left-0 flex items-center sm:hidden">
@@ -20,16 +20,18 @@
                     </svg>
                     </button>
                 </div>
-                <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                    <div class="flex shrink-0 items-center">
-                    </div>
-                    <div class="hidden sm:ml-6 sm:block">
-                    <div class="flex space-x-4">
-                        <a href="{{ route('posts.index') }}" class="{{ request()->routeIs('posts.*') ? 'rounded-md bg-gray-900 px-3 py-2 text-sm font-medium text-white' : 'text-gray-300' }}" aria-current="{{ request()->routeIs('posts.*') ? 'page' : '' }}">Dashboard</a>
-                        <a href="{{ route('players.index') }}" class="{{ request()->routeIs('players.*') ? 'rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover' : 'bg-gray-700 hover:text-white' }}">Players</a>
-                        <a href="{{ route('pitches.index') }}" class="{{ request()->routeIs('pitches.*') ? 'rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover' : 'bg-gray-700 hover:text-white' }}">Pitches</a>
-                        <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Clubs</a>
-                    </div>
+                <div class="flex items-center justify-between max-w-screen-xl mx-auto">
+                    <div class="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
+                        <div class="flex shrink-0 items-center">
+                        </div>
+                        <div class="hidden sm:ml-6 sm:block">
+                        <div class="flex space-x-4">
+                            <a href="{{ route('posts.index') }}" class="{{ request()->routeIs('posts.*') ? 'rounded-md bg-blue-400 px-3 py-2 text-sm font-medium text-white' : 'rounded-md bg-blue-800 px-3 py-2 text-sm font-medium text-white' }}" aria-current="{{ request()->routeIs('posts.*') ? 'page' : '' }}">Dashboard</a>
+                            <a href="{{ route('players.index') }}" class="{{ request()->routeIs('players.*') ? 'rounded-md bg-blue-400 px-3 py-2 text-sm font-medium text-white' : 'rounded-md bg-blue-800 px-3 py-2 text-sm font-medium text-white' }}">Players</a>
+                            <a href="{{ route('pitches.index') }}" class="{{ request()->routeIs('pitches.*') ? 'rounded-md bg-blue-400 px-3 py-2 text-sm font-medium text-white' : 'rounded-md bg-blue-800 px-3 py-2 text-sm font-medium text-white' }}">Pitches</a>
+                            <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Clubs</a>
+                        </div>
+                        </div>
                     </div>
                 </div>
                 <div class="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
