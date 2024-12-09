@@ -12,8 +12,7 @@
         <!-- @endforeach
     </ul> -->
     @include('layouts.overview')
+    @include('layouts.pages')
 
-    {{ $posts->links() }}
-    <a href="{{ route('posts.create' )}}">Create PosT</a>
 
 @endsection
