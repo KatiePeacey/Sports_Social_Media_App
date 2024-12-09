@@ -1,29 +1,11 @@
 <!doctype html>
 <html lang="en">
     <head>
-        <title>Cymrinet - @yield('title')</title>
+        @vite('resources/css/app.css')
     </head>
-<style>
-body {
-  font-family: Arial;
-  margin: 0;
-}
 
-.header {
-  padding: 10px;
-  text-align: center;
-  background: green;
-  color: red;
-  font-size: 30px;
-}
-
-.content {padding:30px;}
-</style>
 <body>
-    <div class="header">
-    <h1>Cymrinet - @yield('title')</h1>
-    </div>
-
+    @include('layouts.navbar')
     @livewire('user-search')
 
     @if ($errors->any())

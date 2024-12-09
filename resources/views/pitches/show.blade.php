@@ -1,6 +1,6 @@
 @extends('layouts.app')
 
-@section('title', 'Pitch Details')
+<!-- @section('title', 'Pitch Details') -->
 
 @section('content')
     <ul>
