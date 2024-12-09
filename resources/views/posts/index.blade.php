@@ -3,7 +3,6 @@
 @section('title', 'Posts')
 
 @section('content')
-    <p>The posts in hockey:</p>
     <!-- <ul>
         @foreach ($posts as $post) -->
             <!-- <li><a href="{{ route('posts.show', $post) }}">{{ $post->player->name }}</a></li> -->
