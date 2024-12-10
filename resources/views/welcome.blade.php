@@ -1,43 +1,35 @@
-@extends('layouts.app')
-
-@section('title', 'Post Details')
+@extends('layouts.welcomeLayout')
 
 @section('content')
-<div class="relative min-h-screen flex flex-col items-center justify-center selection:bg-[#FF2D20] selection:text-white">
-                <div class="relative w-full max-w-2xl px-6 lg:max-w-7xl">
-                    <header class="grid grid-cols-2 items-center gap-2 py-10 lg:grid-cols-3">
-                        <h1>WELCOME!</h1>
-                        @if (Route::has('login'))
-                            <nav class="-mx-3 flex flex-1 justify-end">
-                                @auth
-                                    <a
-                                        href="{{ url('/posts') }}"
-                                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-black dark:hover:text-white/80 dark:focus-visible:ring-white"
-                                    >
-                                        Noticeboard
-                                    </a>
-                                @else
-                                    <a
-                                        href="{{ route('login') }}"
-                                        class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-black dark:hover:text-white/80 dark:focus-visible:ring-white"
-                                    >
-                                        Log in
-                                    </a>
 
-                                    @if (Route::has('register'))
-                                        <a
-                                            href="{{ route('register') }}"
-                                            class="rounded-md px-3 py-2 text-black ring-1 ring-transparent transition hover:text-black/70 focus:outline-none focus-visible:ring-[#FF2D20] dark:text-black dark:hover:text-white/80 dark:focus-visible:ring-white"
-                                        >
-                                            Register
-                                        </a>
-                                    @endif
-                                @endauth
-                            </nav>
-                        @endif
-                    </header>
+    <div class="bg-blue-800 p-9">
+        <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
+            <div class="text-center">
+                <h1 class="text-balance text-5xl font-semibold tracking-tight text-white sm:text-7xl font-serif">Welcome</h1>
+                <p class="mt-8 text-pretty text-lg font-medium text-gray-200 sm:text-xl/8"> The modern hockey management system to share stats and posts all in one place.</p>
+                <div class="mt-10 flex items-center justify-center gap-x-6">
+                    @if (Route::has('login'))
+                        <nav class="mt-10 flex items-center justify-center gap-x-6">
+                            @auth
+                            <a href="{{ url('/posts') }}"
+                            class="rounded-md bg-gray-200 px-3.5 py-2.5 text-lg font-semibold text-black shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800">
+                            Noticeboard </a>
+                           
+                            @else
+                                <a href="{{ route('login') }}"
+                                class="rounded-md bg-gray-200 px-3.5 py-2.5 text-lg font-semibold text-black shadow-sm hover:bg-blue-400 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-blue-800">
+                                Log in </a>
 
+                            @if (Route::has('register'))
+                                <a href="{{ route('register') }}"
+                                class="text- font-semibold text-gray-200 hover:text-black">
+                                Register </a>
+                            @endif
+                            @endauth
+                        </nav>
+                    @endif
                 </div>
-</div>
+            </div>
+      </div>
+    </div>
 @endsection
-
