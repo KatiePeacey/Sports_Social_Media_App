@@ -22,14 +22,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-Route::get('/secret' ,function (){
-    return "secret";
-}) -> middleware(['auth']);
-
-Route::get('/food', function(){
-    return view('food');
-});
-
 // Route::get('/clubs/{player?}', function($player = null) {
 //     return view('club', ['player' => $player]);
 // });
@@ -40,11 +32,11 @@ Route::get('/players', [PlayerController::class, 'index']) ->name('players.index
 Route::get('/players/{id}', [PlayerController::class, 'show']) -> name('players.show');
 
 Route::get('/posts', [PostController::class, 'index']) ->name('posts.index');
-Route::get('/posts/create', [PostController::class, 'create']) -> name('posts.create');
+Route::get('/posts/create', [PostController::class, 'create']) -> name('posts.create') -> middleware(['auth']);
 Route::post('/posts', [PostController::class, 'store']) -> name('posts.store');
 //Route::get('/players/{id}', [PlayerController::class, 'show']) -> name('players.show');
 Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
-Route::delete('/posts/{id}', [PostController::class, 'destroy']) -> name('posts.destroy');
+Route::delete('/posts/{id}', [PostController::class, 'destroy']) -> name('posts.destroy') -> middleware(['auth']);
 
 Route::get('/pitches', [PitchController::class, 'index']) ->name('pitches.index');
 Route::get('/pitches/{id}', [PitchController::class, 'show']) -> name('pitches.show');
