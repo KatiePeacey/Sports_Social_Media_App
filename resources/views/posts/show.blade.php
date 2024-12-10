@@ -5,7 +5,7 @@
 @section('content')
     @if(isset($post))
         <ul>
-            <li>Post: <img src="{{ asset('images/' . $post->content) }}" alt="Post Image" width="400" height="300"></li>
+            <li>Post: <img src="{{ asset('images/' . $post->image_path) }}" alt="Post Image" width="400" height="300"></li>
             <li>User Name: {{ $post->player->name }}</li>
         </ul>
 

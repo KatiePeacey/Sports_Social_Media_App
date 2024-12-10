@@ -15,7 +15,8 @@ class PostTableSeeder extends Seeder
     public function run(): void
     {
         $p = new Post;
-        $p->content = 'test test test';
+        $p->caption = 'test test test';
+        $p->image_path = '071338d77a1599bc2cbf701843a818c5.png';
         $p->player_id = 1;
         $p->save();
 

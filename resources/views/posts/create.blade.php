@@ -3,25 +3,47 @@
 @section('title', 'Create Post')
 
 @section('content')
-    <form method="POST" action="{{ route('posts.store') }}">
+    <form method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data">
         @csrf
-        <p>Content: <input type="text" name="content"
-            value="{{ old('content') }}"></p>
-        <p>Player Id: <select name="player_id">
-            @foreach ($players as $player)
-                <option value="{{ $player->id }}"
-                    @if ($player->id == old('player_id'))
-                        selected="selected"
-                    @endif
+        <div class="sm:pl-6">
+            <p>
+                <label for="player_id">Select Username:</label>
+                <select name="player_id" id="player_id" required>
+                    @foreach ($players as $player)
+                        <option value="{{ $player->id }}"
+                            @if ($player->id == old('player_id')) 
+                                selected="selected"
+                            @endif
+                        >
+                            {{ $player->name }}
+                        </option>
+                    @endforeach
+                </select>
+            </p>
+            <div>
+                    <label for="caption" class="block text-sm font-medium text-gray-900">Caption</label>
+                    <input id="caption" type="text" name="caption" value="{{ old('caption') }}" class="mt-2 p-2 w-full border border-gray-300 rounded-md" required>
+                </div>
+            <div>
+                <label for="image_path" class="block text-sm font-medium text-gray-900">Upload an image as content</label>
+                <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
+                    <div class="text-center">
+                        <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2">
+                            <span>Upload a file</span>
+                            <input id="file-upload" name="image_path" type="file" class="sr-only" required>
+                        </label>
+                        <p class="pl-1">or drag and drop</p>
+                        <p class="text-xs text-gray-600">PNG, JPG, GIF up to 10MB</p>
+                    </div>
+                </div>
+            </div>
 
-                >{{ $player->name }}</option>
-                </option>
-            @endforeach
-        </select>
-        </p>
+            <!-- Submit Button -->
+            <div class="mt-4">
+                <button type="submit" class="px-4 py-2 bg-blue-800 text-white rounded-md">Submit</button>
+                <a href="{{ route('posts.index') }}" class="text-sm font-semibold text-gray-900">Cancel</a>
 
-        <input type="submit" value="Submit">
-        <a href="{{ route('posts.index') }}">Cancel</a>
+            </div>
+        </div>
     </form>
-
 @endsection

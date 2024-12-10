@@ -7,8 +7,9 @@
         @foreach ($posts as $post)
       <li>
             <h1 class="text-lg font-semibold tracking-tight text-gray-900"><a href="{{ route('posts.show', $post) }}">{{ $post->player->name }}</a></h3>
-            <p class="text-sm/6 font-semibold text-indigo-600">{{ $post->created_at->format('d/m/y H:i')}}</p>
-            <p class="text-sm/6 font-semibold text-indigo-600">Content: <img src="{{ asset('images/' . $post->content) }}" alt="Post Image" width="400" height="300"></p>
+            <p class="text-sm/6 font-semibold text-indigo-600">{{ $post->created_at->diffForHumans ()}}</p>
+            <p class="text-sm/6 font-semibold text-indigo-600">Content: <img src="{{ asset('images/' . $post->image_path) }}" alt="Post Image" width="400" height="300"></p>
+            <p class="text-sm/6 font-semibold text-gray-600">Caption: {{ $post->caption }}</p>
       </li>
         @endforeach
     </ul>

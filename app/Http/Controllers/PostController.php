@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 
 use App\Models\Post;
+use App\Models\Player;
 
 class PostController extends Controller
 {
@@ -24,7 +25,7 @@ class PostController extends Controller
     {
         //$clubs = Club::all();
         $players = Player::orderBy('name', 'asc')->get();
-        return view('players.create', ['players' => $players]);
+        return view('posts.create', ['players' => $players]);
     }
 
     /**
@@ -34,16 +35,25 @@ class PostController extends Controller
     {
         //dd($request['name']);
         $validatedData = $request->validate([
-            'content' => 'required|string',
+            'caption' => 'required|string',
+            'image_path' => 'required|image|mimes:jpg,jpeg,png,gif|max:10240',
             'player_id' => 'required|integer',
         ]);
-        $a = new Post;
-        $a->content = $validatedData['content'];
-        $a->player_id = $validatedData['player_id'];
-        $a->save();
+
+        if ($request->hasFile('image_path')) {
+            $fileName = $request->file('image_path')->getClientOriginalName();
+            $path = $request->file('image_path')->move(public_path('images'), $fileName);
+            
+            Post::create([
+                'caption' => $request->caption,
+                'image_path' => $fileName, // Save the relative path
+                'player_id' => $request->player_id,
+            ]);
 
         session()->flash('message', 'Post was created.');
         return redirect()->route('posts.index');
+        }
+    return redirect()->back()->withErrors(['image' => 'Image upload failed.']);
     }
 
     /**

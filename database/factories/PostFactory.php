@@ -19,8 +19,8 @@ class PostFactory extends Factory
     public function definition(): array
     {
         return [
-            'content' => fake()->unique()->image(public_path('images'), 400, 300, null, false),
-            //'content' => fake()->catchPhrase(),
+            'caption' => fake()->catchPhrase(),
+            'image_path' => fake()->unique()->image(public_path('images'), 400, 300, null, false),
             'player_id' => Player::factory(),
         ];
     }
