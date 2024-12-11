@@ -2,10 +2,28 @@
 
 
 @section('content')
-    <ul>
-        <li>Name: {{ $club->name }}</li>
-        <li>League: {{ $club->league }}</li>
-        <li>Games Played: {{ $club->games_played }}</li>
-        <li>Pitch Id: {{ $club->pitch->city }}</li>
-    </ul>
+  <div class="px-4 py-3">
+    <h1 class="text-2xl font-semibold text-gray-900">Club Details</h1>
+  </div>
+  <div class="mt-6 border-t border-gray-100">
+    <dl class="divide-y divide-gray-100">
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 ">
+        <dt class="text-base font-medium text-blue-800">Club Name</dt>
+        <dd class="text-base text-gray-700 sm:mt-0">{{ $club->name }}</dd>
+      </div>
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 ">
+        <dt class="text-base font-medium text-blue-800">League Level</dt>
+        <dd class="text-base text-gray-700 sm:mt-0">{{ $club->league }}</dd>
+      </div>
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 ">
+        <dt class="text-base font-medium text-blue-800">Number Of Games Played</dt>
+        <dd class="text-base text-gray-700 sm:mt-0">{{ $club->games_played }}</dd>
+      </div>
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 ">
+        <dt class="text-base font-medium text-blue-800">Pitch Location</dt>
+        <dd class="text-base text-gray-700 sm:mt-0">{{ $club->pitch->city }}</dd>
+      </div>
+    </dl>
+  </div>
+</div>
 @endsection

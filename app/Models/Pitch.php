@@ -11,7 +11,7 @@ class Pitch extends Model
 
     public function club()
     {
-        return $this->hasMany(Club::class);
+        return $this->belongsTo(Club::class);
     }
 }
 

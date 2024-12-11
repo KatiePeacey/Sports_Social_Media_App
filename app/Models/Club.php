@@ -11,6 +11,6 @@ class Club extends Model
 
     public function pitches()
     {
-        return $this->belongsTo(Pitches::class);
+        return $this->hasOne(Pitches::class);
     }
 }
