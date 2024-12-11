@@ -1,5 +1,5 @@
 @extends('layouts.welcomeLayout')
 
 @section('content')
-<h1>hello</h1>
+<h1>manager</h1>
 @endsection
