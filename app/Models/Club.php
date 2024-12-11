@@ -5,14 +5,12 @@ namespace App\Models;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class Pitch extends Model
+class Club extends Model
 {
     use HasFactory;
 
-    public function club()
+    public function pitches()
     {
-        return $this->hasMany(Club::class);
+        return $this->belongsTo(Pitches::class);
     }
 }
-
-
