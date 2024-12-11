@@ -9,10 +9,11 @@ class Player extends Model
 {
     use HasFactory;
 
-    public function pitch()
-    {
-        return $this->hasOne(Pitch::class);
-    }
+    protected $fillable = [
+        'name',
+        'user_id', 
+    ];
+
     public function post()
     {
         return $this->hasMany(Post::class);
@@ -20,6 +21,11 @@ class Player extends Model
     public function umpires()
     {
         return $this->belongsToMany(Umpire::class);
+    }
+
+    public function user()
+    {
+        return $this->belongsTo(User::class);
     }
 
 }

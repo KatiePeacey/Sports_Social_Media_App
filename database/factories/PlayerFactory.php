@@ -5,6 +5,7 @@ namespace Database\Factories;
 use Illuminate\Database\Eloquent\Factories\Factory;
 //use App\Models\Club;
 use App\Models\Player;
+use App\Models\User;
 
 
 /**
@@ -26,6 +27,7 @@ class PlayerFactory extends Factory
             'email' => fake()->email(),
             'phone_number' => fake()->e164PhoneNumber(),
             'postcode' => fake()->postcode(),
+            'user_id' => User::factory(),
         ];
     } 
 }

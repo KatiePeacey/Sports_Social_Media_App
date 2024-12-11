@@ -11,6 +11,8 @@
 
         <!-- @endforeach
     </ul> -->
+    <!-- Check for success or error messages in the session -->
+     
     @include('layouts.noticeboard')
     @include('layouts.pagination')
 

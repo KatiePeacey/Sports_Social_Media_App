@@ -6,20 +6,7 @@
     <form method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data">
         @csrf
         <div class="sm:pl-6">
-            <p>
-                <label for="player_id">Select Username:</label>
-                <select name="player_id" id="player_id" required>
-                    @foreach ($players as $player)
-                        <option value="{{ $player->id }}"
-                            @if ($player->id == old('player_id')) 
-                                selected="selected"
-                            @endif
-                        >
-                            {{ $player->name }}
-                        </option>
-                    @endforeach
-                </select>
-            </p>
+ 
             <div>
                     <label for="caption" class="block text-sm font-medium text-gray-900">Caption</label>
                     <input id="caption" type="text" name="caption" value="{{ old('caption') }}" class="mt-2 p-2 w-full border border-gray-300 rounded-md" required>

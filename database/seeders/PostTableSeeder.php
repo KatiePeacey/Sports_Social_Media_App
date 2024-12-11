@@ -20,6 +20,6 @@ class PostTableSeeder extends Seeder
         $p->player_id = 1;
         $p->save();
 
-        Post::factory(30)->create();
+        Post::factory(3)->create();
     }
 }

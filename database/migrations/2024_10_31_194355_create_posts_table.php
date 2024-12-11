@@ -16,11 +16,8 @@ return new class extends Migration
             $table->id();
             $table->string('caption');
             $table->string('image_path')->nullable();
-            $table->bigInteger('player_id')->unsigned();
+            $table->foreignId('player_id')->constrained()->onDelete('cascade');
             $table->timestamps();
-
-            $table->foreign('player_id')->references('id')->on('players')
-            ->onDelete('cascade')->onUpdate('cascade');
         });
     }
 

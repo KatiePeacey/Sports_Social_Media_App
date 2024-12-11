@@ -11,6 +11,8 @@ use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
+use App\Models\Player;
+
 
 class RegisteredUserController extends Controller
 {
@@ -43,6 +45,15 @@ class RegisteredUserController extends Controller
             'role' => $request->role,
         ]);
 
+        $player = Player::create([
+            'name' => $request->name,
+            'user_id' => $user->id,
+            'date_of_birth' => $request->date_of_birth, 
+            'email' => $request->email,
+            'phone_number' => $request->phone_number,
+
+        ]);
+
         event(new Registered($user));
 
         Auth::login($user);
@@ -62,4 +73,8 @@ class RegisteredUserController extends Controller
         }
         return redirect(route('/', absolute: false));
     }
+    protected function generatePlayerId()
+{
+    return rand(100, 9999);
+}
 }

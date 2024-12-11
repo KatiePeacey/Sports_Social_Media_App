@@ -15,10 +15,11 @@ return new class extends Migration
         Schema::create('players', function (Blueprint $table) {
             $table->id();
             $table->string('name');
-            $table->string('date_of_birth');
-            $table->string('email');
-            $table->string('phone_number');
-            $table->string('postcode');
+            $table->string('date_of_birth')->nullable();
+            $table->string('email')->nullable();
+            $table->string('phone_number')->nullable();
+            $table->string('postcode')->nullable();
+            $table->foreignId('user_id')->constrained()->onDelete('cascade');
             $table->timestamps();
         });
     }
