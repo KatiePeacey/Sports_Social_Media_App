@@ -23,13 +23,13 @@ class Player
         
         $userRole=Auth::user()->role;
         
-        if($userRole==1){
+        if($userRole=='manager'){
             return redirect()->route('manager');
         }
-        if($userRole==2){
+        if($userRole=='coach'){
             return redirect()->route('coach');
         }
-        if($userRole==3){
+        if($userRole=='player'){
             return $next($request);
         }
     }

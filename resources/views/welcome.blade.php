@@ -6,7 +6,7 @@
         <div class="mx-auto max-w-2xl py-32 sm:py-48 lg:py-56">
             <div class="text-center">
                 <h1 class="text-balance text-5xl font-semibold tracking-tight text-white sm:text-7xl font-serif">Welcome</h1>
-                <p class="mt-8 text-pretty text-lg font-medium text-gray-200 sm:text-xl/8"> The modern hockey management system to share stats and posts all in one place.</p>
+                <p class="mt-8 text-pretty text-lg font-medium text-gray-200 sm:text-xl/8"> The modern hockey management system to share news and photos all in one place.</p>
                 <div class="mt-10 flex items-center justify-center gap-x-6">
                     @if (Route::has('login'))
                         <nav class="mt-10 flex items-center justify-center gap-x-6">

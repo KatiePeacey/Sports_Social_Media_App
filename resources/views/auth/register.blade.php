@@ -39,11 +39,13 @@
             <x-input-error :messages="$errors->get('password_confirmation')" class="mt-2" />
         </div>
 
-        <!-- Role -->
-        <div>
-            <x-input-label for="role" :value="__('Role')" />
-            <x-text-input id="role" class="block mt-1 w-full" type="text" name="role" :value="old('role')" required autofocus autocomplete="role" />
-            <x-input-error :messages="$errors->get('role')" class="mt-2" />
+        <div class="mt-4">
+            <x-input-label for="role" :value="__('Position In Club')"  />
+            <select id="role" name="role" class="mt-1 block w-full rounded-md  bg-gray-900 focus:ring-indigo-600 text-gray-200">
+                <option value="player">Player</option>
+                <option value="coach">Coach</option>
+                <option value="manager">Manager</option>
+            </select>
         </div>
 
 

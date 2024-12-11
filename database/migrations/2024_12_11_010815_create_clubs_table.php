@@ -16,7 +16,6 @@ return new class extends Migration
             $table->string('name');
             $table->string('league');
             $table->integer('games_played');
-            $table->string('postcode');
             $table->bigInteger('pitch_id')->unsigned();
             $table->timestamps();
 

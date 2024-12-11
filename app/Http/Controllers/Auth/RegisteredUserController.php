@@ -33,7 +33,7 @@ class RegisteredUserController extends Controller
             'name' => ['required', 'string', 'max:255'],
             'email' => ['required', 'string', 'lowercase', 'email', 'max:255', 'unique:'.User::class],
             'password' => ['required', 'confirmed', Rules\Password::defaults()],
-            'role' => ['required', 'integer'],
+            'role' => ['required', 'in:player,coach,manager'],
         ]);
 
         $user = User::create([
@@ -45,17 +45,17 @@ class RegisteredUserController extends Controller
 
         event(new Registered($user));
 
-        //Auth::login($user);
+        Auth::login($user);
         $userRole=Auth::user()->role;
         switch($userRole){
-            case 1:
+            case 'manager':
                 $this->redirect(route('manager', absolute: false));
                 break;
-            case 2:
+            case 'coach':
                 $this->redirect(route('coach', absolute: false));
                 break;
-            case 3:
-                $this->redirect(route('player', absolute: false));
+            case 'player':
+                $this->redirect(route('posts.index', absolute: false));
                 break;
             default:
                 return redirect(route('dashboard', absolute: false));

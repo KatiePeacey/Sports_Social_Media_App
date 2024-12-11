@@ -29,7 +29,7 @@
                             <a href="{{ route('posts.index') }}" class="{{ request()->routeIs('posts.index*') ? 'rounded-md bg-blue-400 px-3 py-2 text-sm font-medium text-white hover:bg-blue-400' : 'rounded-md bg-blue-800 px-3 py-2 text-sm font-medium text-white hover:bg-blue-600' }}" aria-current="{{ request()->routeIs('posts.*') ? 'page' : '' }}">Noticeboard</a>
                             <a href="{{ route('players.index') }}" class="{{ request()->routeIs('players.*') ? 'rounded-md bg-blue-400 px-3 py-2 text-sm font-medium text-white hover:bg-blue-400' : 'rounded-md bg-blue-800 px-3 py-2 text-sm font-medium text-white hover:bg-blue-600' }}">Players</a>
                             <a href="{{ route('pitches.index') }}" class="{{ request()->routeIs('pitches.*') ? 'rounded-md bg-blue-400 px-3 py-2 text-sm font-medium text-white hover:bg-blue-400' : 'rounded-md bg-blue-800 px-3 py-2 text-sm font-medium text-white hover:bg-blue-600' }}">Pitches</a>
-                            <a href="#" class="rounded-md px-3 py-2 text-sm font-medium text-gray-300 hover:bg-gray-700 hover:text-white">Clubs</a>
+                            <a href="{{ route('clubs.index') }}" class="{{ request()->routeIs('clubs.*') ? 'rounded-md bg-blue-400 px-3 py-2 text-sm font-medium text-white hover:bg-blue-400' : 'rounded-md bg-blue-800 px-3 py-2 text-sm font-medium text-white hover:bg-blue-600' }}">Clubs</a>
                             <a href="{{ route('posts.create') }}" class="{{ request()->routeIs('posts.create*') ? 'rounded-md bg-blue-400 px-3 py-2 text-sm font-medium text-white hover:bg-blue-400' : 'rounded-md bg-blue-800 px-3 py-2 text-sm font-medium text-white hover:bg-blue-600' }}">New Post</a>
                         </div>
                         </div>
