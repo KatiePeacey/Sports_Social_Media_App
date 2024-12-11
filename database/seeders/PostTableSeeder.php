@@ -20,11 +20,6 @@ class PostTableSeeder extends Seeder
         $p->player_id = 1;
         $p->save();
 
-        $players = Player::all();
-        //Post::factory(2)->for($players->random())->create();
-
-        $players->each(function ($player) {
-            Post::factory(2)->create(['player_id' => $player->id,]);
-        });
+        Post::factory(30)->create();
     }
 }

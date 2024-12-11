@@ -21,7 +21,7 @@
       </div>
       <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 ">
         <dt class="text-base font-medium text-blue-800">Pitch Location</dt>
-        <dd class="text-base text-gray-700 sm:mt-0">{{ $club->pitch->city }}</dd>
+        <dd class="text-base text-gray-700 sm:mt-0">{{ $club->pitch_id }}</dd>
       </div>
     </dl>
   </div>
