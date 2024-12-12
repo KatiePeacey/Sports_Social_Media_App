@@ -12,6 +12,7 @@ use Illuminate\Support\Facades\Hash;
 use Illuminate\Validation\Rules;
 use Illuminate\View\View;
 use App\Models\Player;
+use App\Models\Post;
 
 
 class RegisteredUserController extends Controller
@@ -60,16 +61,16 @@ class RegisteredUserController extends Controller
         $userRole=Auth::user()->role;
         switch($userRole){
             case 'manager':
-                $this->redirect(route('manager', absolute: false));
+                return redirect(route('posts.index'));
                 break;
             case 'coach':
-                $this->redirect(route('coach', absolute: false));
+                return redirect(route('posts.index'));
                 break;
             case 'player':
-                $this->redirect(route('posts.index', absolute: false));
+                return redirect(route('posts.index'));
                 break;
             default:
-                return redirect(route('dashboard', absolute: false));
+                return redirect(route('posts.index'));
         }
         return redirect(route('/', absolute: false));
     }

@@ -4,6 +4,9 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Models\Club;
+use App\Models\Pitch;
+use App\Models\Player;
+use Illuminate\Support\Facades\Auth;
 
 class ClubController extends Controller
 {
@@ -21,7 +24,22 @@ class ClubController extends Controller
      */
     public function create()
     {
-        //
+        $pitches = Pitch::all();
+
+        if (Auth::user()->role === 'player') {
+            return redirect()->route('clubs.index')->with('message', 'You cannot create a club.');
+        } 
+        if (Auth::user()->role === 'coach') {
+            return redirect()->route('clubs.index')->with('message', 'You cannot create a club.');
+        } 
+        elseif (Auth::user()->role === 'manager') {
+
+        } 
+        else {
+            return response()->json(['error' => 'Unauthorized role'], 403);
+        }
+
+        return view('clubs.create', ['pitches' => $pitches]);
     }
 
     /**
@@ -29,7 +47,23 @@ class ClubController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        //dd($request['name']);
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'league' => 'required|max:255',
+            'games_played' => 'required|integer',
+            'pitch_id' => 'required|integer',
+        ]);
+
+        $a = new Club;
+        $a->name = $validatedData['name'];
+        $a->league = $validatedData['league'];
+        $a->games_played = $validatedData['games_played'];
+        $a->pitch_id = $validatedData['pitch_id'];
+        $a->save();
+
+        session()->flash('message', 'New club created.');
+        return redirect()->route('clubs.index');
     }
 
     /**
@@ -39,6 +73,7 @@ class ClubController extends Controller
     {
         $club = Club::findOrFail($id);
         return view('clubs.show', ['club' => $club]);
+    
     }
 
     /**
@@ -46,7 +81,7 @@ class ClubController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        
     }
 
     /**
@@ -62,6 +97,23 @@ class ClubController extends Controller
      */
     public function destroy(string $id)
     {
-        //
+        $club = Club::findOrFail($id);
+
+        if (Auth::user()->role === 'player') {
+            return redirect()->route('clubs.index')->with('message', 'You cannot delete any clubs.');
+        } 
+        if (Auth::user()->role === 'coach') {
+            return redirect()->route('clubs.index')->with('message', 'You cannot delete any clubs.');
+        } 
+        elseif (Auth::user()->role === 'manager') {
+
+        } 
+        else {
+            return response()->json(['error' => 'Unauthorized role'], 403);
+        }
+
+        $club->delete();
+
+        return redirect()->route('clubs.index')->with('message', 'Club was deleted.');
     }
 }

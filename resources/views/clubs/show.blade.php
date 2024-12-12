@@ -25,5 +25,18 @@
       </div>
     </dl>
   </div>
+  <form method="POST" action="{{ route('clubs.destroy', ['id' => $club->id]) }}">
+            @csrf
+            @method('DELETE')
+            <div class="flex space-x-4 px-4 py-3">
+              <div class='rounded-md bg-blue-800 px-3 py-2 text-sm font-medium text-white hover:bg-blue-600'>
+                <button type="submit" >Delete</button>
+              </div>
+              <div class="mt-1">
+              <a href="{{ route('clubs.index') }}" class="text-sm font-semibold text-gray-900">Back</a>
+              </div>
+            </div>
+        </form>
+        
 </div>
 @endsection
