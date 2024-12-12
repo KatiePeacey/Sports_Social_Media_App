@@ -6,7 +6,7 @@
 
 <body>
     @include('layouts.navbar')
-    @livewire('user-search')
+    
 
     @if ($errors->any())
         <div>

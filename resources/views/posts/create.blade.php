@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="px-4 py-3">
+    <h1 class="text-2xl font-semibold text-gray-900 sm:pl-2">Create a new post:</h1>
+  </div>
     <form method="POST" action="{{ route('posts.store') }}" enctype="multipart/form-data">
         @csrf
         <div class="sm:pl-6">
@@ -13,7 +16,7 @@
                 <label for="image_path" class="block text-sm font-medium text-gray-900">Upload an image as content</label>
                 <div class="mt-2 flex justify-center rounded-lg border border-dashed border-gray-900/25 px-6 py-10">
                     <div class="text-center">
-                        <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-semibold text-indigo-600 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2">
+                        <label for="file-upload" class="relative cursor-pointer rounded-md bg-white font-semibold text-blue-800 hover:text-indigo-500 focus-within:outline-none focus-within:ring-2 focus-within:ring-indigo-600 focus-within:ring-offset-2">
                             <span>Upload a file</span>
                             <input id="file-upload" name="image_path" type="file" class="sr-only" required>
                         </label>

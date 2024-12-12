@@ -1,6 +1,9 @@
 @extends('layouts.app')
 
 @section('content')
+<div class="px-4 py-3">
+    <h1 class="text-2xl font-semibold text-gray-900 sm:pl-2">Create a new club:</h1>
+  </div>
     <form method="POST" action="{{ route('clubs.store') }}" enctype="multipart/form-data">
         @csrf
         <div class="sm:pl-6">
@@ -11,8 +14,30 @@
             </div>
             <div>
                     <label for="league" class="block text-sm font-medium text-gray-900">League Level</label>
-                    <input id="league" type="text" name="league" value="{{ old('league') }}" class="mt-2 p-2 w-full border border-gray-300 rounded-md" required>
                     
+                    <select name="league" class="mt-2 p-2 w-full border border-gray-300 rounded-md"> 
+                            <option>
+                                Premier 1
+                            </option>
+                            <option>
+                                Premier 2
+                            </option>
+                            <option>
+                                Division 1
+                            </option>
+                            <option>
+                                Division 2
+                            </option>
+                            <option>
+                                Division 3
+                            </option>
+                            <option>
+                                Division 4
+                            </option>
+                            <option>
+                                Division 5
+                            </option>
+                    </select>
             </div>
             <div>
                     <label for="games_played" class="block text-sm font-medium text-gray-900">Number of games played</label>

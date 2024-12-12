@@ -50,7 +50,7 @@ class ClubController extends Controller
         //dd($request['name']);
         $validatedData = $request->validate([
             'name' => 'required|max:255',
-            'league' => 'required|max:255',
+            'league' => 'required|in:Premier 1,Premier 2,Division 1,Division 2,Division 3,Division 4,Division 5',
             'games_played' => 'required|integer',
             'pitch_id' => 'required|integer',
         ]);

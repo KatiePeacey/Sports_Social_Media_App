@@ -49,7 +49,7 @@ class PostController extends Controller
 
             Post::create([
                 'caption' => $request->caption,
-                'image_path' => $fileName, // Save the relative path
+                'image_path' => $fileName,
                 'player_id' => $player->id,
                 
             ]);

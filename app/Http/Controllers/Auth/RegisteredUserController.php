@@ -72,7 +72,7 @@ class RegisteredUserController extends Controller
             default:
                 return redirect(route('posts.index'));
         }
-        return redirect(route('/', absolute: false));
+        return redirect(route('posts.index', absolute: false));
     }
     protected function generatePlayerId()
 {
