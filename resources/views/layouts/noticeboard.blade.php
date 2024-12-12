@@ -10,6 +10,7 @@
             <p class="text-sm/6 font-semibold text-indigo-600">{{ $post->created_at->diffForHumans ()}}</p>
             <p class="text-sm/6 font-semibold text-indigo-600">Content: <img src="{{ asset('images/' . $post->image_path) }}" alt="Post Image" width="400" height="300"></p>
             <p class="text-sm/6 font-semibold text-gray-600">Caption: {{ $post->caption }}</p>
+            <p class="text-sm/6 font-semibold text-gray-600">See comments </p>
       </li>
         @endforeach
     </ul>
