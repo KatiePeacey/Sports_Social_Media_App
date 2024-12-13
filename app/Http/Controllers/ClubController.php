@@ -81,7 +81,14 @@ class ClubController extends Controller
      */
     public function edit(string $id)
     {
-        
+        $club = Club::findOrFail($id);
+
+        if (Auth::user()->role === 'manager') {
+            return view('clubs.edit', ['club' => $club]);
+        } else {
+            return redirect()->route('clubs.show')
+                             ->with('error', 'You do not have permission to edit this comment.');
+        } 
     }
 
     /**
@@ -89,8 +96,35 @@ class ClubController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validatedData = $request->validate([
+            'name' => 'required|max:255',
+            'league' => 'required|in:Premier 1,Premier 2,Division 1,Division 2,Division 3,Division 4,Division 5',
+            'games_played' => 'required|integer',
+        ]);
+
+        $club = Club::findOrFail($id);
+        $user = auth()->user();
+
+    if (Auth::user()->role === 'manager') {
+
+        $club->name = $validatedData['name'];
+        $club->league = $validatedData['league'];
+        $club->games_played = $validatedData['games_played'];
+        if ($request->has('pitch_id')) {
+            $club->pitch_id = $request->pitch_id;
+        $club->save();
+
+        session()->flash('message', 'Club updated successfully.');
+
+        return redirect()->route('clubs.show');
+
+    } else {
+
+        return redirect()->route('clubs.show', ['id' => $club->id])
+                         ->with('error', 'You do not have permission to edit this club.');
     }
+    }
+}
 
     /**
      * Remove the specified resource from storage.
