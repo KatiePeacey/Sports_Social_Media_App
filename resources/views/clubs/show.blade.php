@@ -21,13 +21,13 @@
       </div>
     </dl>
   </div>
-  @if(auth()->user()->role === 'manager')
+
 <div class="flex space-x-4 px-4 py-3">
 <div class='rounded-md bg-yellow-700 px-3 py-2 text-lg font-medium text-white hover:bg-yellow-600'>
   <a href="{{ route('clubs.edit', $club->id) }}">Edit Club</a>
 </div>
 </div> 
-@endif 
+
   <form method="POST" action="{{ route('clubs.destroy', ['id' => $club->id]) }}">
             @csrf
             @method('DELETE')

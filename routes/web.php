@@ -35,9 +35,9 @@ Route::get('/clubs', [ClubController::class, 'index']) ->name('clubs.index');
 Route::get('/clubs/create', [ClubController::class, 'create']) -> name('clubs.create') -> middleware(['auth']);
 Route::post('/clubs', [ClubController::class, 'store']) -> name('clubs.store');
 Route::get('/clubs/{id}', [ClubController::class, 'show']) -> name('clubs.show');
+Route::get('/clubs/{id}/edit', [ClubController::class, 'edit'])->name('clubs.edit');
+Route::put('/clubs/{id}', [ClubController::class, 'update'])->name('clubs.update');
 Route::delete('/clubs/{id}', [ClubController::class, 'destroy']) -> name('clubs.destroy') -> middleware(['auth']);
-Route::get('/clubs/{Club}/edit', [ClubController::class, 'edit'])->name('clubs.edit') -> middleware(['auth']);
-Route::put('/clubs/{Club}', [ClubController::class, 'update'])->name('clubs.update');
 
 Route::get('/posts', [PostController::class, 'index']) ->name('posts.index');
 Route::get('/posts/create', [PostController::class, 'create']) -> name('posts.create') -> middleware(['auth']);
