@@ -7,6 +7,7 @@ use Illuminate\Http\Request;
 use App\Models\Post;
 use App\Models\Player;
 use App\Models\User;
+use App\Models\Comment;
 use Illuminate\Support\Facades\Auth;
 
 class PostController extends Controller
@@ -67,7 +68,8 @@ class PostController extends Controller
     {
         
         //$player = Player::findOrFail($id);
-        return view('posts.show', ['post' => $post]);
+        $post->load('comments.player');
+        return view('posts.show', compact('post'));
     }
 
     /**

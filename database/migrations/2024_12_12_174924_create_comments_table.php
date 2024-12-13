@@ -5,6 +5,7 @@ use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
 use App\Models\Comment;
 use App\Models\Post;
+use App\Models\Player;
 
 return new class extends Migration
 {
@@ -19,6 +20,11 @@ return new class extends Migration
             $table->bigInteger('post_id')->unsigned();
 
             $table->foreign('post_id')->references('id')->on('posts')
+              ->onDelete('cascade')->onUpdate('cascade');
+
+            $table->bigInteger('player_id')->unsigned();
+
+            $table->foreign('player_id')->references('id')->on('players')
               ->onDelete('cascade')->onUpdate('cascade');
 
             $table->timestamps();

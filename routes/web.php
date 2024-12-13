@@ -7,6 +7,7 @@ use App\Http\Controllers\PitchController;
 use App\Http\Controllers\UmpireController;
 use App\Http\Controllers\PostController;
 use App\Http\Controllers\ClubController;
+use App\Http\Controllers\CommentController;
 use App\Livewire\Counter;
 
 Route::get('/', function () {
@@ -17,13 +18,6 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->middleware(['auth', 'verified', 'player'])->name('dashboard');
 
-Route::get('/coach', function () {
-    return view('coach');
-})->middleware(['auth', 'verified', 'coach'])->name('coach');
-
-Route::get('/manager', function () {
-    return view('manager');
-})->middleware(['auth', 'verified', 'manager'])->name('manager');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
@@ -31,9 +25,6 @@ Route::middleware('auth')->group(function () {
     Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
 });
 
-// Route::get('/clubs/{player?}', function($player = null) {
-//     return view('club', ['player' => $player]);
-// });
  
 Route::get('/counter', Counter::class);
 
@@ -52,10 +43,14 @@ Route::post('/posts', [PostController::class, 'store']) -> name('posts.store');
 Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
 Route::delete('/posts/{id}', [PostController::class, 'destroy']) -> name('posts.destroy') -> middleware(['auth']);
 
+
 Route::get('/pitches', [PitchController::class, 'index']) ->name('pitches.index');
 Route::get('/pitches/{id}', [PitchController::class, 'show']) -> name('pitches.show');
 
-Route::get('/umpires', [UmpireController::class, 'index']) ->name('umpires.index');
-Route::get('/umpires/{id}', [UmpireController::class, 'show']) -> name('umpires.show');
+Route::get('/posts/{post}/comments/create', [CommentController::class, 'create'])->name('comments.create') -> middleware(['auth']);
+Route::post('/posts/{post}/comments', [CommentController::class, 'store'])->name('comments.store');
+Route::delete('/comments/{comment}', [CommentController::class, 'destroy'])->name('comments.destroy') -> middleware(['auth']);
+Route::get('/comments/{comment}/edit', [CommentController::class, 'edit'])->name('comments.edit') -> middleware(['auth']);
+Route::put('/comments/{comment}', [CommentController::class, 'update'])->name('comments.update');
 
 require __DIR__.'/auth.php';
