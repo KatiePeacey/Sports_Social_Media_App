@@ -7,6 +7,8 @@ use App\Models\Comment;
 use App\Models\Post;
 use App\Models\Player;
 use Illuminate\Support\Facades\Auth;
+use App\Mail\CommentNotification;
+use Illuminate\Support\Facades\Mail;
 
 class CommentController extends Controller
 {
@@ -40,11 +42,19 @@ class CommentController extends Controller
 
         $player = auth()->user()->player;
 
-        $c = new Comment;
-        $c->comment = $validatedData['comment'];
-        $c->post_id = $validatedData['post_id'];
-        $c->player_id = $player->id;
-        $c->save();
+        $comment = new Comment;
+        $comment->comment = $validatedData['comment'];
+        $comment->post_id = $validatedData['post_id'];
+        $comment->player_id = $player->id;
+        $comment->save();
+
+        $post = Post::with('player.user')->findOrFail($validatedData['post_id']);
+        $postOwner = $post->player->user;
+    
+        // Send email
+        if ($postOwner && $postOwner->email) {
+            Mail::to($postOwner->email)->send(new CommentNotification($post, $comment));
+        }
 
         session()->flash('message', 'Comment added.');
         return redirect()->route('posts.show', $validatedData['post_id']);
