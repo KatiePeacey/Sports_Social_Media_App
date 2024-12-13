@@ -42,6 +42,8 @@ Route::get('/posts/create', [PostController::class, 'create']) -> name('posts.cr
 Route::post('/posts', [PostController::class, 'store']) -> name('posts.store');
 Route::get('/posts/{post}', [PostController::class, 'show'])->name('posts.show');
 Route::delete('/posts/{id}', [PostController::class, 'destroy']) -> name('posts.destroy') -> middleware(['auth']);
+Route::get('/posts/{Post}/edit', [PostController::class, 'edit'])->name('posts.edit') -> middleware(['auth']);
+Route::put('/posts/{Post}', [PostController::class, 'update'])->name('posts.update');
 
 
 Route::get('/pitches', [PitchController::class, 'index']) ->name('pitches.index');

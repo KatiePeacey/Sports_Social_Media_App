@@ -77,7 +77,15 @@ class PostController extends Controller
      */
     public function edit(string $id)
     {
-        //
+        $post = Post::findOrFail($id);
+        $user = auth()->user();
+
+        if ($user->id === $post->player->user_id || $user->role === 'manager') {
+            return view('posts.edit', compact('post'));
+        } else {
+            return redirect()->route('posts.show', $post->player_id)
+                             ->with('error', 'You do not have permission to edit this comment.');
+        }
     }
 
     /**
@@ -85,7 +93,29 @@ class PostController extends Controller
      */
     public function update(Request $request, string $id)
     {
-        //
+        $validatedData = $request->validate([
+            'caption' => 'required|string',
+            
+        ]);
+
+    $post = Post::findOrFail($id);
+    $user = auth()->user();
+
+    if ($user->id === $post->player->user_id || $user->role === 'manager') {
+
+        $post->caption = $validatedData['caption'];
+        $post->image_path;
+        $post->save();
+
+        session()->flash('message', 'Post updated successfully.');
+
+        return redirect()->route('posts.show', $post->player_id);
+
+    } else {
+
+        return redirect()->route('posts.show', $post->player_id)
+                         ->with('error', 'You do not have permission to edit this comment.');
+    }
     }
 
     /**

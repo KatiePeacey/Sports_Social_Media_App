@@ -12,6 +12,10 @@
         <dd class="text-base text-gray-700 sm:mt-0">{{ $post->player->name }}</dd>
       </div>
       <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 ">
+        <dt class="text-base font-medium text-blue-800">Caption</dt>
+        <dd class="text-base text-gray-700 sm:mt-0">{{ $post->caption }}</dd>
+      </div>
+      <div class="px-4 py-6 sm:grid sm:grid-cols-3 sm:gap-4 ">
         <dt class="text-base font-medium text-blue-800">Content</dt>
         <img src="{{ asset('images/' . $post->image_path) }}" alt="Post Image" width="400" height="300">
       </div>
@@ -53,11 +57,19 @@
 </div>
 </div>
 
+@if(auth()->check() && (auth()->user()->id === $post->player->user_id || auth()->user()->role === 'manager'))
+<div class="flex space-x-4 px-4 py-3">
+<div class='rounded-md bg-yellow-700 px-3 py-2 text-lg font-medium text-white hover:bg-yellow-600'>
+    <a href="{{ route('posts.edit', $post->id) }}">Edit Post</a>
+</div>
+</div> 
+@endif                
+
   <form method="POST" action="{{ route('posts.destroy', ['id' => $post->id]) }}">
             @csrf
             @method('DELETE')
             <div class="flex space-x-4 px-4 py-3">
-              <div class='rounded-md bg-blue-800 px-3 py-2 text-sm font-medium text-white hover:bg-blue-600'>
+              <div class='rounded-md bg-red-800 px-3 py-2 text-sm font-medium text-white hover:bg-red-600'>
                 <button type="submit" >Delete</button>
               </div>
               <div class="mt-1">
