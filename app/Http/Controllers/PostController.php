@@ -26,8 +26,6 @@ class PostController extends Controller
      */
     public function create()
     {
-        //$clubs = Club::all();
-        // $players = Player::orderBy('name', 'asc')->get();
         return view('posts.create');
     }
 
